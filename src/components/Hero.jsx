@@ -52,7 +52,7 @@ const Hero = () => {
         }}
         type="text" placeholder='...' className='py-2 w-full rounded-sm px-2 outline-none'/>
         <button 
-         className='py-2 w-full rounded-sm bg-emerald-700 hover:bg-emerald-500 mt-2 text-white outline-none '>Submnit</button>       
+         className='py-2 w-full rounded-sm bg-emerald-700 hover:bg-emerald-500 mt-2 text-white outline-none '>Submit</button>       
      </form>
      <div className=' w-[90vw] mt-2 rounded-sm'>
       <ListGroup handleDelete={handleDelete} rating={rating}/>
