@@ -1,14 +1,14 @@
 import React from 'react'
 import ListItems from './ListItems'
 
-const ListGroup = ({rating , handleDelete}) => {
+const ListGroup = ({feedbacks , handleDelete, handleEdit}) => {
 
   return (
     <ul className='space-y-2 '>
         { 
-            rating.map((items) => {
+            feedbacks.map((feedback) => {
                 return(
-                    <ListItems key={items.id} items={items} handleDelete={handleDelete} />
+                    <ListItems key={feedback.id} feedback={feedback} handleDelete={handleDelete} handleEdit={handleEdit}/>
                 )
             })
         }
