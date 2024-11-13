@@ -1,16 +1,14 @@
 import React from 'react'
 import ListItems from './ListItems'
 
-const ListGroup = ({feedbacks , handleDelete, handleEdit}) => {
+const ListGroup = ({feedbacks,removefeedback}) => {
 
   return (
     <ul className='space-y-2 '>
-        { 
-            feedbacks.map((feedback) => {
-                return(
-                    <ListItems key={feedback.id} feedback={feedback} handleDelete={handleDelete} handleEdit={handleEdit}/>
-                )
-            })
+        {
+          feedbacks.map((feedback) => 
+            <ListItems key={feedback.id} feedback={feedback} removefeedback={removefeedback}/>
+          )
         }
     </ul>
   )
