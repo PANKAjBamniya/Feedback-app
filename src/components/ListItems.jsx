@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ListItems = ({feedback , removefeedback}) => {
+const ListItems = ({feedback , removefeedback ,editfeedback}) => {
     
   return (
     <li className='dark:text-white flex items-center justify-between bg-gray-300 dark:bg-gray-800 py-2 px-6 rounded-sm'>
@@ -12,6 +12,9 @@ const ListItems = ({feedback , removefeedback}) => {
         </div>
         <div className='space-x-2'>
           <button 
+          onClick={() => {
+            editfeedback(feedback)
+          }}
           className='py-1 px-4 bg-yellow-600 rounded-sm text-white'>Edit</button>
           <button
           onClick={() => {

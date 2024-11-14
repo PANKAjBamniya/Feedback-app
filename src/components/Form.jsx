@@ -1,19 +1,27 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 
-const Form = ({addfeedback}) => {
+const Form = ({addfeedback ,edit ,updatedFeedback}) => {
   
   const [review , setReview] = useState('')
   const [rating , setRating] = useState()
   
   const handleSubmit  = ((e) => {
     e.preventDefault()
-    
-    addfeedback(rating,review)
+
+    edit.isedit 
+    ? updatedFeedback({id:edit.feedback.id, review : review, rating : parseInt(rating)}) 
+    : addfeedback(rating,review);  
 
     setRating("")
     setReview("")
   })
 
+  useEffect(() => {
+    setRating(edit.feedback.rating)
+    setReview(edit.feedback.review) 
+  },[edit])
+
+ 
   return (
     <form
     onSubmit={handleSubmit}
@@ -41,7 +49,7 @@ const Form = ({addfeedback}) => {
         type="text" placeholder='...' className='py-2 w-full rounded-sm px-2 outline-none'/>
         <button 
          className='py-2 w-full rounded-sm bg-emerald-700 hover:bg-emerald-500 mt-2 text-white outline-none '>
-          Add
+          {edit.isedit ? "Updated" : "Add"}
           </button>       
      </form>
   )
